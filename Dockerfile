@@ -8,6 +8,7 @@ ENV SQUID_VERSION=4.6 \
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y squid=${SQUID_VERSION}* \
+ && apt-get install -y --no-install-recommends apt-utils
  && rm -rf /var/lib/apt/lists/*
 
 ADD squid.conf /etc/squid/squid.conf
